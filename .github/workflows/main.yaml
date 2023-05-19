@@ -1,0 +1,40 @@
+name: Unit Test and Update Google Sheet
+
+on:
+    push:
+      branches: [ submission ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.4.0
+      with:
+        node-version: '14.x'
+
+    - name: Install dependencies
+      run: |
+        npm install google-spreadsheet moment-timezone https cheerio jsdom mocha
+
+    - name: Test project
+      run: |
+        export TEST_CASES_PASSED=$(node ./.github/tests/test.js)
+        echo "$TEST_CASES_PASSED"
+        echo $TEST_CASES_PASSED > test-cases-passed.txt
+
+    - name: Update Google Sheet
+      if: success()
+      env:
+        GOOGLE_SHEETS_EMAIL: ${{ secrets.GOOGLE_SHEETS_EMAIL }}
+        GOOGLE_SHEETS_PRIVATE_KEY: ${{ secrets.GOOGLE_SHEETS_PRIVATE_KEY }}
+        GITHUB_ACTOR: ${{ github.actor }}
+        GITHUB_EMAIL: ${{ github.event.head_commit.author.email }}
+        TEST_CASES_PASSED: ${{ env.TEST_CASES_PASSED }}
+      run: |
+        TEST_CASES_PASSED=$(cat test-cases-passed.txt)
+        echo "Test cases passed: $TEST_CASES_PASSED"
+        node ./.github/workflows/update-sheet.js $TEST_CASES_PASSED
