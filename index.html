@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katik (Kalkulator Matematik)</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-left">
+        <a href="#"
+          ><img
+            width="60"
+            height="60"
+            src="https://img.icons8.com/clouds/100/square-border.png"
+            alt="square-border"
+            class="left-icon"
+        /></a>
+        <h1>Katik<span> Kalkulator Matematik</span></h1>
+      </div>
+      <img
+        width="45"
+        height="45"
+        class="right-icon"
+        src="https://img.icons8.com/badges/48/menu.png"
+        alt="menu"
+      />
+    </header>
+
+    <!-- Main -->
+    <main>
+      <section class="main-section animate__animated animate__zoomIn">
+        <div class="main-section-content">
+          <h2>Hi, Selamat datang di Katik!</h2>
+          <p>
+            Sebuah website sederhana yang berfungsi untuk menghitung nilai luas
+            dan keliling persegi.
+          </p>
+          <br />
+          <p>Klik button di bawah untuk mencoba</p>
+        </div>
+
+        <!-- Navigation Button -->
+        <div class="main-section-nav">
+          <ul>
+            <li>
+              <a class="luas-persegi" href="#luas-persegi-section"
+                >Luas Persegi</a
+              >
+            </li>
+            <li>
+              <a class="keliling-persegi" href="#keliling-persegi-section"
+                >Keliling Persegi</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Luas Persegi Section -->
+      <section class="luas-persegi-section" id="luas-persegi-section">
+        <div class="persegi-content">
+          <h3 class="persegi-title">Luas Persegi</h3>
+          <div class="persegi-img"></div>
+          <p>Rumus luas persegi yaitu:</p>
+          <p>L = S x S</p>
+          <p>dimana:</p>
+          <p>L = Luas</p>
+          <p>S = Sisi</p>
+        </div>
+        <div class="hitung-luas-persegi-section">
+          <h3 class="persegi-title">Hitung Luas Persegi</h3>
+          <form action="">
+            <input
+              type="number"
+              id="input-sisi-luas"
+              placeholder="Masukkan nilai sisi"
+              required
+            />
+            <div
+              class="hasil-luas-persegi-content"
+              id="hasil-luas-persegi-content"
+            >
+              <p id="rumus-hitung-luas"></p>
+              <p id="rumus-luas"></p>
+              <p id="hasil-luas"></p>
+            </div>
+            <button
+              type="button"
+              id="btn-hitung-luas"
+              class="btn-hitung"
+              onclick="hitungLuas()"
+            >
+              Hitung Luas
+            </button>
+            <button
+              type="button"
+              id="btn-reset-hitung-luas"
+              class="btn-reset"
+              onclick="resetLuas()"
+            >
+              Reset
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Keliling Persegi Section -->
+      <section class="keliling-persegi-section" id="keliling-persegi-section">
+        <div class="persegi-content">
+          <h3 class="persegi-title">Keliling Persegi</h3>
+          <div class="persegi-img"></div>
+          <p>Rumus keliling persegi yaitu:</p>
+          <p>K = 4 x S</p>
+          <p>dimana:</p>
+          <p>K = Keliling</p>
+          <p>S = Sisi</p>
+        </div>
+        <div class="hitung-keliling-persegi-section">
+          <h3 class="persegi-title">Hitung Keliling Persegi</h3>
+          <form action="">
+            <input
+              type="number"
+              id="input-sisi-keliling"
+              placeholder="Masukkan nilai sisi"
+              required
+            />
+            <div class="hasil-keliling-persegi-content">
+              <p id="rumus-hitung-keliling"></p>
+              <p id="rumus-keliling"></p>
+              <p id="hasil-keliling"></p>
+            </div>
+            <button
+              type="button"
+              id="btn-hitung-keliling"
+              class="btn-hitung"
+              onclick="hitungKeliling()"
+            >
+              Hitung Keliling
+            </button>
+            <button
+              type="button"
+              id="btn-reset-hitung-keliling"
+              class="btn-reset"
+              onclick="resetKeliling()"
+            >
+              Reset
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- End of Main -->
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        Coded by
+        <a href="https://github.com/stkhalisha" target="_blank">Khalisha S.</a>
+      </p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>
